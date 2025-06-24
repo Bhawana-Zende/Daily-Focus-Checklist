@@ -1,21 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>🎯 Daily Focus Checklist</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Wins Checklist</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🎯 Daily Focus Checklist</h1>
-  
-  <div class="goals-form">
-    <input id="goalInput" placeholder="Add a goal..." maxlength="50" />
-    <button id="addGoal">Add</button>
-  </div>
+    <div class="container">
+        <header>
+            <h1>Mini Wins Checklist</h1>
+            <div class="game-dashboard">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalPoints">0</div>
+                    <div class="stat-label">Points</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="dailyStreak">0</div>
+                    <div class="stat-label">Day Streak</div>
+                </div>
+            </div>
+            <p class="subtitle">Celebrate your small victories today</p>
+        </header>
 
-  <!-- This list will be populated dynamically by script.js -->
-  <ul id="goalsList"></ul>
+        <main>
+            <div class="input-section">
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="goalInput" 
+                        placeholder="What's your mini win for today?"
+                        maxlength="100"
+                        autocomplete="off"
+                    >
+                    <div class="input-row">
+                        <div class="priority-selector">
+                            <label for="prioritySelect">Priority:</label>
+                            <select id="prioritySelect">
+                                <option value="high">🔴 High</option>
+                                <option value="medium" selected>🟠 Medium</option>
+                                <option value="low">🟢 Low</option>
+                            </select>
+                        </div>
+                        <div class="time-input">
+                            <label for="timeInput">Time:</label>
+                            <input 
+                                type="text" 
+                                id="timeInput" 
+                                placeholder="e.g. 1hr, 30min"
+                                maxlength="20"
+                            >
+                        </div>
+                    </div>
+                    <button id="addButton" type="button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Goal
+                    </button>
+                </div>
+            </div>
 
-  <script src="script.js"></script>
+            <div class="goals-section">
+                <ul id="goalsList" class="goals-list">
+                    <!-- Goals will be dynamically added here -->
+                </ul>
+                <div id="emptyState" class="empty-state">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 11l3 3 8-8"></path>
+                        <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.84 0 3.55.55 4.98 1.49"></path>
+                    </svg>
+                    <p>No mini wins yet. Add your first item above!</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p class="footer-text">Focus on progress, not perfection</p>
+        </footer>
+    </div>
+
+    <!-- Confetti Animation Container -->
+    <div id="confetti-container"></div>
+
+    <!-- Audio for completion sounds -->
+    <audio id="completionSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmEcCjiR1/LNeSsFJXfI8N2QQAoUXrTp66hUFApGn+DyvmEcCjiS1/LNeSsFJXfI8N2QQAoUXrTp66hUFApGn+DyvmEcCjiS1/LNeSsFJXfI8N2QQAkUXrTp66hUFApGn+DyvmEcCjiS1/LNeSsFJXfI8N2QQAkUXrTp66hUFApGn+DyvmEcCjiS1/LNeSsFJXfI8N2QQAkUXrTq66hUFApGnt/yvmMcCjiR1/LNeSsFJHfH8N2QQAoUXrTp66hVFAlGnt/yvmMcCjiR1/LNeSsFJHfH8N2QQAoUXrTp66hVFAlGnt/yvmMcCjiR1/LNeSsFJHfH8N2QQAoUX7Lp66hWFAlFnt/yv2IcCjiS1/LNeSgFJHfH79yQQQkUX7Lp66hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yQQQkUX7Lp66hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yQQQkUX7Lp66hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yQQQkUX7Lp66hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp66hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp66hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp66hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp66hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp66hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp76hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp76hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp76hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp76hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp76hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp76hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7Lp76hWFAlFnt/yv2IcCjiS1/LNeshFJHfH79yPQQkUX7" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
 </body>
 </html>
