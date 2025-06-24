@@ -33,27 +33,20 @@ ul {
   max-width: 500px;
   margin: 1rem auto;
 }
-
 li {
   background: white;
   padding: 0.8rem;
   margin-bottom: 0.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-
-  /* Keep checkbox and text on one line */
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  transition: transform 0.2s;
 }
 
-li:hover {
-  transform: scale(1.02);
-}
-
+/* Set fixed width on the checkbox so it stays left-aligned */
 li input[type="checkbox"] {
-  transform: scale(1.2); /* slightly bigger checkbox */
+  margin-right: 2cm; /* 2 cm spacing to the text */
+  transform: scale(1.2); /* optional: bigger checkbox */
 }
 
 li span {
