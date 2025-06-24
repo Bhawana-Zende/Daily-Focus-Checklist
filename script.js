@@ -1,4 +1,4 @@
-// Load goals from localStorage
+// Load existing goals
 let goals = JSON.parse(localStorage.getItem('dailyGoals') || '[]');
 
 // Elements
@@ -6,20 +6,16 @@ const goalInput = document.getElementById('goalInput');
 const addGoalButton = document.getElementById('addGoal');
 const goalsList = document.getElementById('goalsList');
 
-// Save to localStorage
+// Save goals
 function saveGoals() {
   localStorage.setItem('dailyGoals', JSON.stringify(goals));
 }
 
-// Render goals
+// Render all goals
 function renderGoals() {
   goalsList.innerHTML = '';
   goals.forEach((goal, index) => {
     const li = document.createElement('li');
-    li.classList.toggle('completed', goal.completed);
-
-    const text = document.createElement('span');
-    text.textContent = goal.text;
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
@@ -29,6 +25,10 @@ function renderGoals() {
       saveGoals();
       renderGoals();
     });
+
+    const text = document.createElement('span');
+    text.textContent = goal.text;
+    if (goal.completed) text.classList.add('completed');
 
     li.appendChild(checkbox);
     li.appendChild(text);
