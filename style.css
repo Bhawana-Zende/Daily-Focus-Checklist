@@ -19,6 +19,7 @@ h1 {
 input {
   padding: 0.5rem;
   width: 70%;
+  box-sizing: border-box;
 }
 
 button {
@@ -29,6 +30,8 @@ button {
 ul {
   list-style: none;
   padding: 0;
+  max-width: 500px;
+  margin: 1rem auto;
 }
 
 li {
@@ -36,15 +39,27 @@ li {
   padding: 0.8rem;
   margin-bottom: 0.5rem;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+  /* Keep checkbox and text on one line */
   display: flex;
-  align-items: center;   /* Align checkbox & text vertically */
-  gap: 0.5rem;           /* Space between checkbox & text */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  align-items: center;
+  gap: 0.8rem;
   transition: transform 0.2s;
 }
 
 li:hover {
   transform: scale(1.02);
+}
+
+li input[type="checkbox"] {
+  transform: scale(1.2); /* slightly bigger checkbox */
+}
+
+li span {
+  flex: 1;
+  text-align: left;
+  word-wrap: break-word;
 }
 
 .completed {
