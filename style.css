@@ -16,7 +16,7 @@ h1 {
   margin-bottom: 1rem;
 }
 
-input {
+input#goalInput {
   padding: 0.5rem;
   width: 70%;
   box-sizing: border-box;
@@ -33,29 +33,26 @@ ul {
   max-width: 500px;
   margin: 1rem auto;
 }
+
 li {
   background: white;
   padding: 0.8rem;
   margin-bottom: 0.5rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+
+  /* checkbox + text on one line */
   display: flex;
   align-items: center;
 }
 
-/* Set fixed width on the checkbox so it stays left-aligned */
 li input[type="checkbox"] {
-  margin-right: 2cm; /* 2 cm spacing to the text */
-  transform: scale(1.2); /* optional: bigger checkbox */
+  transform: scale(1.2);    /* larger checkbox */
+  margin-right: 2cm !important; /* 2 cm spacing */
 }
 
 li span {
   flex: 1;
   text-align: left;
   word-wrap: break-word;
-}
-
-.completed {
-  text-decoration: line-through;
-  opacity: 0.6;
 }
